@@ -1,0 +1,26 @@
+{
+  "name": "lab-coverage-vs-sourcemaps-typescript-edition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist cov.html",
+    "coverage": "npm test -- -c -r html -o cov.html",
+    "fail": "cross-env BAD_VERSION=2.0.0 npm test",
+    "prebuild": "typings install",
+    "prepublish": "not-in-install && cross-env NODE_ENV=production npm run build || in-install",
+    "test": "lab -T test/lib/transform-tsc.js test --verbose --sourcemaps"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "code": "^3.0.1",
+    "cross-env": "^1.0.8",
+    "in-publish": "^2.0.0",
+    "lab": "^10.8.2",
+    "rimraf": "^2.5.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.1"
+  }
+}

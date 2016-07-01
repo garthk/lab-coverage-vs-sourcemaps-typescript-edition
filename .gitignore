@@ -1,0 +1,6 @@
+
+cov.html
+typings
+dist
+node_modules
+*.tgz
